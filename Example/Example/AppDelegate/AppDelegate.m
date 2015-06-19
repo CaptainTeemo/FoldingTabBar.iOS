@@ -28,32 +28,32 @@
     YALFoldingTabBarController *tabBarController = (YALFoldingTabBarController *) self.window.rootViewController;
 
     //prepare leftBarItems
-    YALTabBarItem *item1 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"nearby_icon"]
-                                                      leftItemImage:nil
-                                                     rightItemImage:nil];
+    YALTabBarItem *item1 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"search_icon"]
+                                                      leftItemImage:[UIImage imageNamed:@"search_icon"]
+                                                     rightItemImage:[UIImage imageNamed:@"profile_icon"]];
     
     
     YALTabBarItem *item2 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"profile_icon"]
                                                       leftItemImage:[UIImage imageNamed:@"edit_icon"]
                                                      rightItemImage:nil];
     
-    tabBarController.leftBarItems = @[item1, item2];
+    tabBarController.leftBarItems = @[item1];
 
     //prepare rightBarItems
-    YALTabBarItem *item3 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"chats_icon"]
-                                                      leftItemImage:[UIImage imageNamed:@"search_icon"]
-                                                     rightItemImage:[UIImage imageNamed:@"new_chat_icon"]];
+    YALTabBarItem *item3 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"profile_icon"]
+                                                      leftItemImage:[UIImage imageNamed:@"profile_icon"]
+                                                     rightItemImage:[UIImage imageNamed:@"profile_icon"]];
     
     
     YALTabBarItem *item4 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"settings_icon"]
                                                       leftItemImage:nil
                                                      rightItemImage:nil];
     
-    tabBarController.rightBarItems = @[item3, item4];
+//    tabBarController.rightBarItems = @[item3];
     
     tabBarController.centerButtonImage = [UIImage imageNamed:@"plus_icon"];
 
-    tabBarController.selectedIndex = 2;
+    tabBarController.selectedIndex = 0;
     
     //customize tabBarView
     tabBarController.tabBarView.extraTabBarItemHeight = YALExtraTabBarItemsDefaultHeight;

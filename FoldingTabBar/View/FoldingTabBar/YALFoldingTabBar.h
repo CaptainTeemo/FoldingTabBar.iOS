@@ -17,6 +17,7 @@
 
 @optional
 - (void)itemInTabBarViewPressed:(YALFoldingTabBar *)tabBarView atIndex:(NSUInteger)index;
+- (void)centerTabBarViewPressed:(YALFoldingTabBar *)tabBarView;
 
 - (void)tabBarViewWillCollapse:(YALFoldingTabBar *)tabBarView;
 - (void)tabBarViewWillExpand:(YALFoldingTabBar *)tabBarView;

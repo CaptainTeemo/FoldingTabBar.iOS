@@ -408,25 +408,36 @@ typedef NS_ENUM(NSUInteger, YALAnimatingState) {
 - (void)centerButtonPressed {
     //we should wait until animation cycle is finished
     
-    if (![self hasTabBarItems]) {
-        return ;
-    }
+//    if (![self hasTabBarItems]) {
+//        return ;
+//    }
+//    
+//    self.counter ++;
+//    
+//    if (!self.isAnimated) {
+//        if (self.state == YALStateCollapsed) {
+//            [self expand];
+//        } else {
+//            [self collapse];
+//        }
+//    } else {
+//        if (self.animatingState == YALAnimatingStateCollapsing) {
+//            [self expand];
+//        } else  if (self.animatingState == YALAnimatingStateExpanding) {
+//            [self collapse];
+//        }
+//    }
     
-    self.counter ++;
-    
-    if (!self.isAnimated) {
-        if (self.state == YALStateCollapsed) {
-            [self expand];
-        } else {
-            [self collapse];
+    // Just don't need to expand right now
+    [CATransaction transactionWithAnimations:^{
+        self.isAnimated = YES;
+        [self animateCenterButtonExpand];
+        [self animateAdditionalButtons];
+    } andCompletion:^{
+        if ([_delegate respondsToSelector:@selector(centerTabBarViewPressed:)]) {
+            [_delegate centerTabBarViewPressed:self];
         }
-    } else {
-        if (self.animatingState == YALAnimatingStateCollapsing) {
-            [self expand];
-        } else  if (self.animatingState == YALAnimatingStateExpanding) {
-            [self collapse];
-        }
-    }
+    }];
 }
 
 - (IBAction)barItemDidTapped:(id)sender {
